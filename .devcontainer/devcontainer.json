@@ -1,54 +1,18 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 {
-	"name": "Runner Codespaces",
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
+	"name": "Acrtions Runner Codespaces",
+	"dockerFile": "Dockerfile",
+	"runArgs": ["--init", "--privileged"],
+	"mounts": ["source=dind-var-lib-docker,target=/var/lib/docker,type=volume"],
+	"overrideCommand": false,
 	"customizations": {
 		"vscode": {
-			"settings": {
-				"go.toolsManagement.checkForUpdates": "local",
-				"go.useLanguageServer": true,
-				"go.gopath": "/go",
-				"python.defaultInterpreterPath": "/opt/python/latest/bin/python",
-				"python.linting.enabled": true,
-				"python.linting.pylintEnabled": true,
-				"python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
-				"python.formatting.blackPath": "/usr/local/py-utils/bin/black",
-				"python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
-				"python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
-				"python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
-				"python.linting.mypyPath": "/usr/local/py-utils/bin/mypy",
-				"python.linting.pycodestylePath": "/usr/local/py-utils/bin/pycodestyle",
-				"python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
-				"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint",
-				"lldb.executable": "/usr/bin/lldb",
-				"files.watcherExclude": {
-					"**/_layout/**": true
-				}
-			},
-			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
-				"GitHub.vscode-pull-request-github"
+				"ms-azuretools.vscode-docker",
+				"ms-dotnettools.csharp"
 			]
 		}
 	},
-	"remoteUser": "root",
-	"overrideCommand": false,
-	"mounts": [
-		"source=codespaces-linux-var-lib-docker,target=/var/lib/docker,type=volume"
-	],
-	"runArgs": [
-		"--cap-add=SYS_PTRACE",
-		"--security-opt",
-		"seccomp=unconfined",
-		"--privileged",
-		"--init"
-	],
-	// "extensions": [
-	// 	"GitHub.vscode-pull-request-github",
-	// 	"ms-dotnettools.csharp",
-	// 	"eamodio.gitlens"
-	// ],
-	// "postCreateCommand": "bash .devcontainer/init.sh"
+	"postCreateCommand": "/bin/bash /var/init.sh",
+	"remoteUser": "root"
 }

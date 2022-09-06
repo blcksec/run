@@ -3,11 +3,14 @@
 echo 'Creating symlink for embedded sdk...'
 
 # pwd is the source root folder
-ln -s /usr/share/dotnet/sdk _dotnetsdk 
-echo .6.0.300 >> _dotnetsdk/6.0.300/.6.0.300
-# ln -s /home/root/.dotnet/dotnet _dotnetsdk/6.0.300/dotnet
+rm -rf _dotnetsdk 
+ln -s /usr/share/dotnet/sdk/6.0.300 _dotnetsdk 
 
-exit 0
+# Satisfy dev.sh SDK conditions
+echo .6.0.300 > _dotnetsdk/6.0.300/.6.0.300
+ln -s /usr/bin/dotnet /usr/share/dotnet/sdk/6.0.300/dotnet
 
 cd src
 ./dev.sh
+
+dotnet restore ActionsRunner.sln

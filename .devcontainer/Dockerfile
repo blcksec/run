@@ -14,6 +14,9 @@ ARG DOCKER_VERSION="latest"
 # Enable new "BUILDKIT" mode for Docker CLI
 ENV DOCKER_BUILDKIT=1
 
+# https://github.com/microsoft/vscode-dev-containers/issues/1617
+ENV IGNORE_NOTICE=true
+
 ARG USERNAME=automatic
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID

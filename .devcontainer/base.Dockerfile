@@ -39,7 +39,7 @@ CMD [ "sleep", "infinity" ]
 RUN apt update && apt-get install -y --allow-downgrades dotnet-sdk-6.0=6.0.300-1
 RUN apt-get install build-essential -y
 COPY init.sh /var/init.sh
-COPY first-run-notice.txt /tmp/scripts/
+COPY first-run-notice.txt /usr/local/etc/vscode-dev-containers/
 
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \

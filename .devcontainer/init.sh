@@ -14,3 +14,7 @@ ln -s -f /usr/bin/dotnet /usr/share/dotnet/sdk/6.0.300/dotnet
 rm -rf _layout
 cd src
 ./dev.sh l
+
+# dev.sh doesn't restore 'Test'
+cd Test
+dotnet restore 

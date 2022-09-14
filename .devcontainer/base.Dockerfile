@@ -21,6 +21,7 @@ ARG USERNAME=automatic
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 COPY library-scripts/*.sh /tmp/library-scripts/
+COPY first-run-notice.txt /usr/local/etc/vscode-dev-containers/
 RUN apt-get update \
     && /bin/bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true" \
     # Use Docker script from script library to set things up
@@ -39,7 +40,6 @@ CMD [ "sleep", "infinity" ]
 RUN apt update && apt-get install -y --allow-downgrades dotnet-sdk-6.0=6.0.300-1
 RUN apt-get install build-essential -y
 COPY init.sh /var/init.sh
-COPY first-run-notice.txt /usr/local/etc/vscode-dev-containers/
 
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \

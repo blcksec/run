@@ -18,3 +18,5 @@ cd src
 # dev.sh doesn't restore 'Test'
 cd Test
 dotnet restore 
+
+echo "All projects have been restored and the runner is ready for configuration in '_layout'."

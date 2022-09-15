@@ -15,5 +15,6 @@
 		}
 	},
 	"postCreateCommand": "/bin/bash /var/init.sh",
+	"waitFor": "postCreateCommand",
 	"remoteUser": "root"
 }

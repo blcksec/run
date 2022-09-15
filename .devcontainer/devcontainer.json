@@ -16,5 +16,5 @@
 	},
 	"postCreateCommand": "/bin/bash /var/init.sh",
 	"waitFor": "postCreateCommand", // Will make extensions wait for restore (would have to manually restart omniSharp otherwise)
-	"remoteUser": "root"
+	"remoteUser": "vscode"
 }

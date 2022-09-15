@@ -5,7 +5,7 @@ ARG INSTALL_ZSH="false"
 # [Option] Upgrade OS packages to their latest versions
 ARG UPGRADE_PACKAGES="false"
 # [Option] Enable non-root Docker access in container
-ARG ENABLE_NONROOT_DOCKER="false"
+ARG ENABLE_NONROOT_DOCKER="true"
 # [Option] Use the OSS Moby Engine instead of the licensed Docker Engine
 ARG USE_MOBY="true"
 # [Option] Engine/CLI Version

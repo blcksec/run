@@ -1,4 +1,3 @@
-﻿using GitHub.Runner.Common.Util;
 using GitHub.Runner.Sdk;
 using System;
 using System.Collections.Concurrent;
@@ -61,6 +60,8 @@ namespace GitHub.Runner.Common
                     Add<T>(extensions, "GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker");
                     Add<T>(extensions, "GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker");
                     Add<T>(extensions, "GitHub.Runner.Worker.CreateStepSummaryCommand, Runner.Worker");
+                    Add<T>(extensions, "GitHub.Runner.Worker.SaveStateFileCommand, Runner.Worker");
+                    Add<T>(extensions, "GitHub.Runner.Worker.SetOutputFileCommand, Runner.Worker");
                     break;
                 case "GitHub.Runner.Listener.Check.ICheckExtension":
                     Add<T>(extensions, "GitHub.Runner.Listener.Check.InternetCheck, Runner.Listener");
